@@ -1,3 +1,4 @@
+// http://www.hydrogen18.com/blog/golang-embedding.html
 package main
 
 import (
@@ -9,8 +10,8 @@ type Person struct {
 }
 
 type Android struct {
-	Person
-	Model string
+	Person // embedded
+	Model  string
 }
 
 func (p *Person) Talk() {
@@ -20,6 +21,6 @@ func (p *Person) Talk() {
 func main() {
 	p := Person{"Long"}
 	a := new(Android)
-	a.Talk()
+	a.Person.Talk()
 	p.Talk()
 }
